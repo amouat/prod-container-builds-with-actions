@@ -1,4 +1,4 @@
 enabled: true
 migrate:
   enabled: true
-  period: "12h"
+  period: "10m"
