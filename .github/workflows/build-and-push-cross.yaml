@@ -19,13 +19,13 @@ jobs:
         uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
+        uses: chainguard-actions/docker-setup-qemu-action@e618b09f0e92c964c8968525b00939e800efb8f5 # v4.0.0
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+        uses: chainguard-actions/docker-setup-buildx-action@8fbaa429a8f774ef64700ee4749056cd9aba100b # v3
       -
         name: Login to GitHub Container Registry
-        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+        uses: chainguard-actions/docker-login-action@c4e74ea6a0c39bc863791d3b4b737e06e93d4da7 # v4.1.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -33,7 +33,7 @@ jobs:
       - 
         name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
+        uses: chainguard-actions/docker-metadata-action@f6351596652d2adfcc044e05dad701b11e2c783b # v6.0.0
         with:
           images: |
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-cross
@@ -53,7 +53,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       -
         name: Attest
-        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        uses: chainguard-actions/actions-attest-build-provenance@ba968bd7c54b40a4f8c43282db9943c6a6332327 # v4.1.0
         id: attest
         with:
           subject-name: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-cross

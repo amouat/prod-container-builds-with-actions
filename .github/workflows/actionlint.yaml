@@ -36,7 +36,7 @@ jobs:
             release-assets.githubusercontent.com:443
 
       - name: Check out code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: chainguard-actions/actions-checkout@48b05545e7d29b75b245be40bb8d866c8523ac49 # v6.0.2
         with:
           persist-credentials: false
 
