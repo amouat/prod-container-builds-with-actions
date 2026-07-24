@@ -22,7 +22,7 @@ jobs:
       with:
         identity: 45a0c61ea6fd977f050c5fb9ac06a69eed764595/3827402530de6dbf
 
-    - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
+    - uses: chainguard-actions/octo-sts-action@1c5f2e9c9682f2897a1eb50262bc35375769bf11 # v1.1.1
       id: octo-sts
       with:
         scope: ${{ github.repository }}
